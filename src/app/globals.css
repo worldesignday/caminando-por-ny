@@ -104,6 +104,12 @@ header h1 .liberty{color:var(--verd-deep)}
 .toggle button[aria-pressed="true"]{background:var(--surface);color:var(--verd-solid);
   box-shadow:var(--shadow)}
 .toggle button:focus-visible{outline:2px solid var(--verd-solid);outline-offset:2px}
+/* En oscuro, el botón activo usa el lima brillante (verd-deep) con texto harbor */
+@media (prefers-color-scheme:dark){
+  .toggle button[aria-pressed="true"]{background:var(--verd-deep);color:var(--harbor)}
+}
+:root[data-theme="dark"] .toggle button[aria-pressed="true"]{background:var(--verd-deep);color:var(--harbor)}
+:root[data-theme="light"] .toggle button[aria-pressed="true"]{background:var(--surface);color:var(--verd-solid)}
 
 /* ---------- SUMMARY ---------- */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0 6px}
@@ -167,6 +173,17 @@ header h1 .liberty{color:var(--verd-deep)}
 .dur{font-size:11px;font-weight:700;color:var(--muted);margin-top:5px;
   text-transform:uppercase;letter-spacing:.04em}
 .light .ttl{font-weight:600;color:var(--ink-soft);font-size:13.5px}
+
+/* CTA de contenido (enlace informativo). Va dentro de la tarjeta: hace scroll
+   con el contenido y no interfiere con la lectura. */
+.cta{display:inline-flex;align-items:center;gap:5px;margin-top:9px;
+  font-size:11px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;
+  color:var(--verd-solid);text-decoration:none;
+  border:1px solid var(--line);background:var(--surface-2);
+  padding:4px 10px;border-radius:20px;transition:border-color .15s,background .15s}
+.cta:hover{border-color:var(--verd-solid)}
+.cta:focus-visible{outline:2px solid var(--verd-solid);outline-offset:2px}
+.cta .ico{font-size:10px}
 
 /* ---------- CALLOUT (food recs) ---------- */
 .callout{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brass);

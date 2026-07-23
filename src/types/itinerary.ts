@@ -21,6 +21,15 @@ export type Category =
   | "naturaleza"
   | "transporte";
 
+/** Enlace a contenido informativo en español (vídeo o artículo). */
+export type ResourceKind = "video" | "blog" | "wiki";
+export interface Resource {
+  url: string;
+  kind: ResourceKind;
+  /** Etiqueta opcional; si falta, se usa una por defecto según el tipo. */
+  label?: string;
+}
+
 export interface TimelineItem {
   /** Hora de inicio, formato "HH:MM". */
   time: string;
@@ -41,6 +50,8 @@ export interface TimelineItem {
   light?: boolean;
   /** Hora destacada (fin del día). */
   big?: boolean;
+  /** Enlace a contenido informativo en español (se inyecta desde resources.ts). */
+  resource?: Resource;
 }
 
 export interface TimelineGroup {
