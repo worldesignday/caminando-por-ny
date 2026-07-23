@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { DayMeta } from "@/types/itinerary";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export function DayHeader({ meta }: { meta: DayMeta }) {
   return (
     <header>
+      <ThemeToggle />
       <Link className="topnav" href="/">
         ← Todos los días
       </Link>

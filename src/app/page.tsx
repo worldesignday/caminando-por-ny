@@ -1,10 +1,12 @@
 import { itineraries } from "@/data";
 import { DayCard } from "@/components/home/DayCard";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export default function Home() {
   return (
     <div className="wrap">
       <header>
+        <ThemeToggle />
         <p className="eyebrow">Nueva York · Octubre 2026</p>
         <h1>
           Mis rutas

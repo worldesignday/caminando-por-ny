@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import type { Itinerary } from "@/types/itinerary";
 import { VersionBody } from "./VersionBody";
 
@@ -12,6 +14,31 @@ export function VersionedItinerary({ itinerary }: { itinerary: Itinerary }) {
   const [current, setCurrent] = useState(initial);
   const version = versions.find((v) => v.id === current) ?? versions[0];
   const single = versions.length < 2;
+
+  const scope = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        return; // sin animación si el usuario lo pide
+      }
+      const targets = scope.current?.querySelectorAll(
+        ".stat, .sectlabel, .row, .callout, .chips, .note",
+      );
+      if (!targets?.length) return;
+      gsap.from(targets, {
+        opacity: 0,
+        y: 10,
+        duration: 0.34,
+        ease: "power2.out",
+        stagger: 0.02,
+      });
+    },
+    { scope, dependencies: [current] },
+  );
 
   return (
     <>
@@ -33,7 +60,9 @@ export function VersionedItinerary({ itinerary }: { itinerary: Itinerary }) {
           ))}
         </div>
       )}
-      <VersionBody version={version} />
+      <div ref={scope}>
+        <VersionBody version={version} />
+      </div>
     </>
   );
 }

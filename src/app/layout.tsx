@@ -1,5 +1,21 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Providers } from "@/components/ui/Providers";
 import "./globals.css";
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-jb",
+  display: "swap",
+  weight: ["500", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -18,8 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body>{children}</body>
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${jakarta.variable} ${mono.variable}`}
+    >
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
