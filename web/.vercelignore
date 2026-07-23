@@ -1,0 +1,5 @@
+# Nunca subir código con secretos ni artefactos ajenos al sitio estático.
+*.py
+*.pdf
+.DS_Store
+README.md
