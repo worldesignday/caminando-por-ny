@@ -5,6 +5,7 @@ import {
   APIProvider,
   Map,
   AdvancedMarker,
+  Marker,
   useMap,
 } from "@vis.gl/react-google-maps";
 import type { TimelineItem } from "@/types/itinerary";
@@ -14,6 +15,12 @@ const KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY;
 const MAP_ID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID;
 
 export type MapStop = TimelineItem & { coords: [number, number] };
+
+function pinColor(kind: TimelineItem["kind"]): string {
+  if (kind === "food") return "#5E7C00";
+  if (kind === "island") return "#143C34";
+  return "#1C4B42";
+}
 
 /** Dibuja la ruta (real o líneas rectas) y encaja el mapa a las paradas. */
 function RouteLayer({
@@ -61,12 +68,12 @@ export function RouteMap({
   slug: string;
   versionId: string;
 }) {
-  if (!KEY || !MAP_ID) {
+  if (!KEY) {
     return (
       <div className="map-missing">
         <p>
-          El mapa necesita las variables <b>NEXT_PUBLIC_GOOGLE_MAPS_KEY</b> y{" "}
-          <b>NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID</b> configuradas en el entorno.
+          El mapa necesita la variable <b>NEXT_PUBLIC_GOOGLE_MAPS_KEY</b>{" "}
+          configurada en el entorno.
         </p>
       </div>
     );
@@ -87,26 +94,48 @@ export function RouteMap({
         zoomControl
         className="map-canvas"
       >
-        {stops.map((s, i) => (
-          <AdvancedMarker
-            key={`${s.title}-${i}`}
-            position={{ lat: s.coords[1], lng: s.coords[0] }}
-            title={`${s.time} · ${s.title}`}
-          >
-            <div
-              className={
-                "map-pin" +
-                (s.kind === "food"
-                  ? " food"
-                  : s.kind === "island"
-                    ? " island"
-                    : "")
-              }
+        {stops.map((s, i) =>
+          MAP_ID ? (
+            <AdvancedMarker
+              key={`${s.title}-${i}`}
+              position={{ lat: s.coords[1], lng: s.coords[0] }}
+              title={`${s.time} · ${s.title}`}
             >
-              {s.mapNumber ?? "•"}
-            </div>
-          </AdvancedMarker>
-        ))}
+              <div
+                className={
+                  "map-pin" +
+                  (s.kind === "food"
+                    ? " food"
+                    : s.kind === "island"
+                      ? " island"
+                      : "")
+                }
+              >
+                {s.mapNumber ?? "•"}
+              </div>
+            </AdvancedMarker>
+          ) : (
+            <Marker
+              key={`${s.title}-${i}`}
+              position={{ lat: s.coords[1], lng: s.coords[0] }}
+              title={`${s.time} · ${s.title}`}
+              label={{
+                text: s.mapNumber ?? "•",
+                color: "#ffffff",
+                fontSize: "10px",
+                fontWeight: "700",
+              }}
+              icon={{
+                path: 0 as google.maps.SymbolPath, // CIRCLE
+                scale: 11,
+                fillColor: pinColor(s.kind),
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2,
+              }}
+            />
+          ),
+        )}
         <RouteLayer stops={stops} slug={slug} versionId={versionId} />
       </Map>
     </APIProvider>
