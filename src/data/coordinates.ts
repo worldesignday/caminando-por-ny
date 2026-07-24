@@ -38,6 +38,7 @@ export const coordinates: Record<string, Record<string, [number, number]>> = {
     "Cannon's Walk": [-74.0038, 40.7068],
     "Memorial Titanic": [-74.0044, 40.7066],
     "Puente de Brooklyn": [-74.0056, 40.7123],
+    "Brooklyn (DUMBO)": [-73.9903, 40.7025],
   },
   "dia-2": {
     "Fulton Center": [-74.0089, 40.7099],

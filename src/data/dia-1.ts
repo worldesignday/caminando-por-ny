@@ -7,7 +7,7 @@ const dia1: Itinerary = {
   "card": {
     "order": 1,
     "title": "Downtown",
-    "desc": "Bajo Manhattan · ferry a la Estatua de la Libertad + Ellis Island, o la versión sin ferry con las 31 paradas."
+    "desc": "Bajo Manhattan · ferry a la Estatua de la Libertad + Ellis Island, o la versión sin ferry con las 32 paradas (terminando en Brooklyn)."
   },
   "meta": {
     "eyebrow": "Nueva York · Ruta andando",
@@ -22,7 +22,7 @@ const dia1: Itinerary = {
         "heading": "Cómo moverte",
         "paragraphs": [
           "<b>Ida:</b> desde 333 York St caminas a <b>Grove St PATH</b> → tren PATH a <b>World Trade Center</b> → conectas hacia el sur (Battery Park). ~35 min.",
-          "<b>Vuelta:</b> desde el Puente de Brooklyn caminas al <b>WTC PATH</b> → PATH a Grove St → alojamiento. ~30 min.",
+          "<b>Vuelta:</b> desde <b>Brooklyn (DUMBO)</b> tomas el metro (A/C en High St) → Fulton St + <b>PATH</b> a Grove St → alojamiento. ~40 min.",
           "Coste transporte ida y vuelta: <b>~$12</b> por persona."
         ]
       },
@@ -38,7 +38,7 @@ const dia1: Itinerary = {
         "paragraphs": [
           "<b>Federal Hall</b> abre entre semana → el martes es perfecto.",
           "Las colas de <b>seguridad del ferry</b> son lo más impredecible: si te retrasas, recorta 10 min en Seaport.",
-          "Los números en cada parada <b>coinciden con el folleto original</b> del mapa."
+          "Los números 1–31 <b>coinciden con el folleto original</b>; la <b>32 (Brooklyn)</b> es un añadido fuera del mapa."
         ]
       }
     ],
@@ -53,19 +53,19 @@ const dia1: Itinerary = {
         {
           "key": "Horario",
           "value": "07:50",
-          "sub": "18:00"
+          "sub": "18:50"
         },
         {
           "key": "Duración",
-          "value": "~10 h"
+          "value": "~11 h"
         },
         {
           "key": "Paradas",
-          "value": "2+11"
+          "value": "2+12"
         },
         {
           "key": "A pie",
-          "value": "4.5 km"
+          "value": "~6.5 km"
         }
       ],
       "groups": [
@@ -235,8 +235,16 @@ const dia1: Itinerary = {
               "kind": "stop",
               "title": "Puente de Brooklyn",
               "mapNumber": "31",
-              "subtitle": "Entrada peatonal + fotos",
+              "subtitle": "Entrada peatonal + cruzar",
               "duration": "23 min"
+            },
+            {
+              "time": "17:40",
+              "kind": "stop",
+              "title": "Brooklyn (DUMBO)",
+              "mapNumber": "32",
+              "subtitle": "Al cruzar el puente · 11201",
+              "duration": "20 min"
             }
           ]
         },
@@ -244,19 +252,20 @@ const dia1: Itinerary = {
           "label": "Regreso",
           "items": [
             {
-              "time": "17:15",
-              "kind": "transit",
-              "title": "Caminar al WTC PATH",
-              "duration": "9 min"
-            },
-            {
-              "time": "17:24",
-              "kind": "transit",
-              "title": "PATH → alojamiento",
-              "duration": "~30 min"
-            },
-            {
               "time": "18:00",
+              "kind": "transit",
+              "title": "Caminar a High St (A/C)",
+              "subtitle": "Metro en Brooklyn Heights / DUMBO",
+              "duration": "8 min"
+            },
+            {
+              "time": "18:08",
+              "kind": "transit",
+              "title": "Metro A/C → Fulton St + PATH → alojamiento",
+              "duration": "~40 min"
+            },
+            {
+              "time": "18:50",
               "kind": "end",
               "title": "Llegada a 333 York St",
               "big": true
@@ -315,19 +324,19 @@ const dia1: Itinerary = {
         {
           "key": "Horario",
           "value": "08:10",
-          "sub": "17:55"
+          "sub": "18:45"
         },
         {
           "key": "Duración",
-          "value": "~9¾ h"
+          "value": "~10½ h"
         },
         {
           "key": "Paradas",
-          "value": "31"
+          "value": "32"
         },
         {
           "key": "A pie",
-          "value": "8.6 km"
+          "value": "~10.5 km"
         }
       ],
       "groups": [
@@ -588,8 +597,16 @@ const dia1: Itinerary = {
               "kind": "stop",
               "title": "Puente de Brooklyn",
               "mapNumber": "31",
-              "subtitle": "Entrada + cruzar un tramo",
+              "subtitle": "Entrada + cruzar el puente",
               "duration": "30 min"
+            },
+            {
+              "time": "17:37",
+              "kind": "stop",
+              "title": "Brooklyn (DUMBO)",
+              "mapNumber": "32",
+              "subtitle": "Al cruzar el puente · 11201",
+              "duration": "20 min"
             }
           ]
         },
@@ -597,19 +614,20 @@ const dia1: Itinerary = {
           "label": "Regreso",
           "items": [
             {
-              "time": "17:12",
+              "time": "17:57",
               "kind": "transit",
-              "title": "Caminar al WTC PATH",
-              "duration": "9 min"
+              "title": "Caminar a High St (A/C)",
+              "subtitle": "Metro en Brooklyn Heights / DUMBO",
+              "duration": "8 min"
             },
             {
-              "time": "17:21",
+              "time": "18:05",
               "kind": "transit",
-              "title": "PATH → alojamiento",
-              "duration": "~30 min"
+              "title": "Metro A/C → Fulton St + PATH → alojamiento",
+              "duration": "~40 min"
             },
             {
-              "time": "17:55",
+              "time": "18:45",
               "kind": "end",
               "title": "Llegada a 333 York St",
               "big": true
@@ -618,7 +636,7 @@ const dia1: Itinerary = {
         }
       ],
       "omit": [],
-      "omitEmptyNote": "Esta versión visita <b>las 31 paradas</b> del mapa original, en orden.",
+      "omitEmptyNote": "Esta versión visita las <b>31 paradas del mapa</b> más una parada final en <b>Brooklyn</b> (32 en total).",
       "recs": {
         "title": "🍽️ Almuerzo al mediodía · Stone Street",
         "intro": "Hacia las 13:00 el recorrido llega al corazón del Financial District — justo donde está Stone Street (Punto 20), una calle adoquinada peatonal repleta de restaurantes y terrazas. Es la pausa perfecta por sector y por hora.",

@@ -57,6 +57,7 @@ COORDS = {
         "Cannon's Walk": [-74.0038, 40.7068],
         "Memorial Titanic": [-74.0044, 40.7066],
         "Puente de Brooklyn": [-74.0056, 40.7123],
+        "Brooklyn (DUMBO)": [-73.9903, 40.7025],
     },
     "dia-2": {
         "Fulton Center": [-74.0089, 40.7099],
@@ -87,7 +88,8 @@ ORDER = {
         "con": ["Estatua de la Libertad", "Bowling Green", "Toro de Wall Street",
                 "Trinity Church", "Bolsa de Nueva York (NYSE)", "Federal Hall",
                 "La Niña sin Miedo", "Stone Street", "Fraunces Tavern",
-                "South Street Seaport", "Memorial Titanic", "Puente de Brooklyn"],
+                "South Street Seaport", "Memorial Titanic", "Puente de Brooklyn",
+                "Brooklyn (DUMBO)"],
         "sin": ["Staten Island Ferry", "St. Elizabeth Ann Seton Shrine", "Carrusel SeaGlass",
                 "East Coast Memorial", "Castle Clinton", "Estatua de la Libertad",
                 "American Merchant Mariners' Memorial", "The Battery Urban Farm",
@@ -97,7 +99,8 @@ ORDER = {
                 "La Niña sin Miedo", "Delmonico's", "Stone Street", "Fraunces Tavern",
                 "Battery Maritime Building", "Helipuerto", "Elevated Acre",
                 "Picnic con vistas", "Pier 15", "South Street Seaport", "Seaport District",
-                "Cannon's Walk", "Memorial Titanic", "Puente de Brooklyn"],
+                "Cannon's Walk", "Memorial Titanic", "Puente de Brooklyn",
+                "Brooklyn (DUMBO)"],
     },
     "dia-2": {
         "con": ["Fulton Center", "St. Paul's Chapel", "The Oculus", "Century 21", "Eataly",
