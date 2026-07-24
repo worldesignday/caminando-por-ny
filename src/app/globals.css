@@ -147,6 +147,8 @@ header h1 .liberty{color:var(--verd-deep)}
 .map-modal-body>div{width:100%;height:100%}
 .map-loading,.map-missing{display:grid;place-items:center;height:100%;min-height:320px;
   padding:24px;text-align:center;color:var(--ink-soft);font-size:13px}
+.map-missing p{margin:0;max-width:340px;line-height:1.5}
+.map-missing b{color:var(--ink);font-family:var(--font-mono);font-size:12px}
 .map-pin{min-width:22px;height:22px;padding:0 5px;border-radius:20px;background:var(--verd-solid);
   color:#fff;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);
   font-family:var(--font-mono);font-size:11px;font-weight:800;display:grid;place-items:center;

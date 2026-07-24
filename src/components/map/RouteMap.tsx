@@ -64,8 +64,10 @@ export function RouteMap({
   if (!KEY || !MAP_ID) {
     return (
       <div className="map-missing">
-        El mapa necesita configurar <b>NEXT_PUBLIC_GOOGLE_MAPS_KEY</b> y{" "}
-        <b>NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID</b>.
+        <p>
+          El mapa necesita las variables <b>NEXT_PUBLIC_GOOGLE_MAPS_KEY</b> y{" "}
+          <b>NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID</b> configuradas en el entorno.
+        </p>
       </div>
     );
   }
