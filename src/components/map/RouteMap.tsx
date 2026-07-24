@@ -53,7 +53,20 @@ function RouteLayer({
       strokeWeight: 4,
       map,
     });
-    return () => line.setMap(null);
+
+    // El mapa se crea dentro de un modal recién montado; a veces no pide las teselas
+    // hasta que recibe un resize. Lo forzamos un par de veces tras el layout.
+    const timers = [120, 400].map((ms) =>
+      window.setTimeout(() => {
+        google.maps.event.trigger(map, "resize");
+        map.fitBounds(bounds, 48);
+      }, ms),
+    );
+
+    return () => {
+      timers.forEach(window.clearTimeout);
+      line.setMap(null);
+    };
   }, [map, stops, slug, versionId]);
 
   return null;
